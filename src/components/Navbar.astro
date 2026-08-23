@@ -1,0 +1,273 @@
+---
+import Logo from './Logo.astro';
+import { nav, site } from '../data/site';
+
+const cta = { label: 'Start a Project', href: '#contact' };
+---
+
+<header class="navbar" id="site-nav">
+  <div class="container navbar__inner">
+    <Logo inverted />
+
+    <nav class="navbar__nav" aria-label="Primary">
+      <ul>
+        {nav.map((item) => (
+          <li>
+            <a class="navbar__link" href={item.href}>
+              <span class="navbar__link-index">{String(nav.indexOf(item) + 1).padStart(2, '0')}</span>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a class="btn btn--accent navbar__cta" href={cta.href}>
+      {cta.label}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14"></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </svg>
+    </a>
+
+    <button
+      class="navbar__toggle"
+      id="nav-toggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="nav-panel"
+    >
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+    </button>
+  </div>
+
+  <div class="navbar__panel" id="nav-panel" hidden>
+    <nav class="container" aria-label="Mobile">
+      <ul>
+        {nav.map((item) => (
+          <li>
+            <a class="navbar__panel-link" href={item.href}>
+              <span class="navbar__link-index">{String(nav.indexOf(item) + 1).padStart(2, '0')}</span>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a class="btn btn--accent navbar__panel-cta" href={cta.href}>
+        {cta.label}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('nav-panel');
+  const links = panel.querySelectorAll('a');
+
+  const onScroll = () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 10);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const setOpen = (open) => {
+    panel.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    nav.classList.toggle('is-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  toggle.addEventListener('click', () => setOpen(panel.hidden));
+  links.forEach((link) => link.addEventListener('click', () => setOpen(false)));
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
+</script>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: background-color var(--transition), border-color var(--transition),
+      box-shadow var(--transition);
+  }
+
+  .navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: var(--header-height);
+  }
+
+  .navbar.is-scrolled {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .navbar__nav ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2vw, 26px);
+  }
+
+  .navbar__link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    padding: 6px 0;
+  }
+
+  .navbar__link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+  }
+
+  .navbar__link:hover {
+    color: var(--color-white);
+  }
+
+  .navbar__link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .navbar__link-index {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    color: var(--color-accent);
+    opacity: 0.9;
+  }
+
+  .navbar.is-scrolled .navbar__link {
+    color: var(--color-dark);
+  }
+
+  .navbar.is-scrolled .navbar__link:hover {
+    color: var(--color-primary-600);
+  }
+
+  .navbar__cta {
+    flex-shrink: 0;
+  }
+
+  .navbar__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-sm);
+  }
+
+  .navbar__toggle-bar {
+    display: block;
+    height: 2px;
+    background: var(--color-white);
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  .navbar.is-scrolled .navbar__toggle-bar {
+    background: var(--color-dark);
+  }
+
+  .navbar.is-open .navbar__toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .navbar.is-open .navbar__toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar.is-open .navbar__toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .navbar__panel {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+    padding: 8px 0 24px;
+  }
+
+  .navbar__panel ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar__panel-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 0;
+    font-weight: 600;
+    color: var(--color-dark);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .navbar__panel-link:last-of-type {
+    border-bottom: 0;
+  }
+
+  .navbar__panel-cta {
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  :global(.navbar .logo-word) {
+    color: var(--color-white);
+  }
+
+  :global(.navbar.is-scrolled .logo-word) {
+    color: var(--color-dark);
+  }
+
+  @media (max-width: 980px) {
+    .navbar__nav,
+    .navbar__cta {
+      display: none;
+    }
+
+    .navbar__toggle {
+      display: flex;
+    }
+  }
+</style>

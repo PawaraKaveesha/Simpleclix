@@ -1,0 +1,173 @@
+---
+import { team } from '../data/content';
+
+const linkedinIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>`;
+---
+
+<section class="section section--light team" id="team" aria-labelledby="team-heading">
+  <div class="grid-bg grid-bg--light" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="tag team__tag">04 / THE PEOPLE</span>
+      <h2 id="team-heading">The people behind Simpleclix.</h2>
+      <p class="lead">
+        Developers, designers, and marketers working as one unit — so nothing gets lost
+        between the build and the growth.
+      </p>
+    </div>
+
+    <ul class="team__grid">
+      {team.map((member, i) => (
+        <li class="team__item reveal" style={`--reveal-delay: ${i * 90}ms`}>
+          <article class="person-card">
+            <div class="person-card__media">
+              <img
+                src={member.image}
+                alt={member.alt}
+                width="600"
+                height="720"
+                loading="lazy"
+                decoding="async"
+              />
+              <a
+                class="person-card__linkedin"
+                href={member.linkedin}
+                aria-label={`${member.name} on LinkedIn`}
+                rel="noopener"
+                target="_blank"
+                set:html={linkedinIcon}
+              ></a>
+            </div>
+            <div class="person-card__body">
+              <span class="person-card__role">{member.role}</span>
+              <h3>{member.name}</h3>
+              <p>{member.description}</p>
+            </div>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .team__tag {
+    margin-bottom: 18px;
+  }
+
+  .team__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(18px, 2.2vw, 24px);
+  }
+
+  .person-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-white);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition),
+      border-color var(--transition);
+  }
+
+  .person-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(37, 99, 235, 0.35);
+  }
+
+  .person-card__media {
+    position: relative;
+    aspect-ratio: 5 / 6;
+    overflow: hidden;
+    background: var(--color-dark-800);
+  }
+
+  .person-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .person-card:hover .person-card__media img {
+    transform: scale(1.04);
+  }
+
+  .person-card__linkedin {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: rgba(15, 23, 42, 0.8);
+    color: var(--color-white);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background var(--transition), color var(--transition),
+      transform var(--transition);
+  }
+
+  .person-card__linkedin:hover {
+    background: var(--color-accent);
+    color: var(--color-white);
+    transform: translateY(-3px);
+  }
+
+  .person-card__linkedin svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .person-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+  }
+
+  .person-card__role {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+  }
+
+  .person-card__body h3 {
+    font-size: 1.08rem;
+    margin-bottom: 8px;
+  }
+
+  .person-card__body p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 980px) {
+    .team__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .team__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .team__item {
+      max-width: 360px;
+      margin-inline: auto;
+      width: 100%;
+    }
+  }
+</style>

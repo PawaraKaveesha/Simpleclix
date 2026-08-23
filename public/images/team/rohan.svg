@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" role="img" aria-label="Portrait of Rohan Perera">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172554"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="720" fill="url(#bg)"/>
+  <circle cx="100" cy="110" r="170" fill="#3b82f6" opacity="0.26"/>
+  <circle cx="540" cy="620" r="200" fill="#f97316" opacity="0.14"/>
+  <circle cx="470" cy="250" r="5" fill="#ffffff" opacity="0.5"/>
+  <circle cx="120" cy="460" r="5" fill="#ffffff" opacity="0.45"/>
+  <circle cx="380" cy="170" r="4" fill="#ffffff" opacity="0.4"/>
+
+  <path d="M80 720 C80 565 185 520 300 520 C415 520 520 565 520 720 Z" fill="#1e3a8a"/>
+  <path d="M286 520 L314 520 L300 604 Z" fill="#dbeafe"/>
+  <rect x="282" y="428" width="36" height="100" rx="16" fill="#e8b38c"/>
+  <circle cx="300" cy="345" r="102" fill="#e8b38c"/>
+
+  <path d="M200 332 C198 250 240 222 300 222 C360 222 402 250 400 332 C398 282 370 248 326 238 C312 232 296 230 282 234 C240 246 212 282 204 320 C201 324 200 328 200 332 Z" fill="#4a2c17"/>
+
+  <ellipse cx="262" cy="350" rx="8" ry="10" fill="#3a2518"/>
+  <ellipse cx="338" cy="350" rx="8" ry="10" fill="#3a2518"/>
+  <circle cx="264" cy="348" r="4" fill="#0f172a"/>
+  <circle cx="336" cy="348" r="4" fill="#0f172a"/>
+  <path d="M316 392 Q300 402 284 392" fill="none" stroke="#b4765a" stroke-width="5" stroke-linecap="round"/>
+</svg>

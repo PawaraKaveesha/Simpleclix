@@ -1,0 +1,182 @@
+---
+import { metrics } from '../data/content';
+---
+
+<section class="section section--dark marketing" id="marketing" aria-labelledby="marketing-heading">
+  <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="tag marketing__tag">PERFORMANCE / DATA</span>
+      <h2 id="marketing-heading">Websites bring visitors. Marketing brings growth.</h2>
+      <p class="lead">
+        Every build is paired with a strategy that compounds — here's how our approach
+        moves the metrics that matter.
+      </p>
+    </div>
+
+    <ul class="marketing__grid">
+      {metrics.map((metric, i) => (
+        <li class="metric-card reveal" style={`--reveal-delay: ${i * 90}ms`}>
+          <header class="metric-card__head">
+            <span class="metric-card__code">{metric.code}</span>
+            <span class="metric-card__delta">{metric.delta}</span>
+          </header>
+          <div class="metric-card__value">
+            <strong>{metric.value}</strong>
+            <span>growth</span>
+          </div>
+          <div class="metric-card__chart" aria-hidden="true">
+            {metric.trend.map((height) => (
+              <span class="metric-card__bar" style={`--bar: ${height}%`}></span>
+            ))}
+          </div>
+          <h3>{metric.label}</h3>
+          <span class="metric-card__axis">MONTH 01 → 08</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .marketing__tag {
+    margin-bottom: 18px;
+  }
+
+  .marketing__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 2vw, 22px);
+  }
+
+  .metric-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-lg);
+    background: rgba(15, 23, 42, 0.6);
+    transition: transform var(--transition), border-color var(--transition);
+  }
+
+  .metric-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(249, 115, 22, 0.55);
+  }
+
+  .metric-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .metric-card__code {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .metric-card__delta {
+    padding: 4px 9px;
+    border-radius: var(--radius-sm);
+    background: rgba(249, 115, 22, 0.14);
+    border: 1px solid rgba(249, 115, 22, 0.35);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+  }
+
+  .metric-card__value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .metric-card__value strong {
+    font-family: var(--font-mono);
+    font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+    font-weight: 600;
+    color: var(--color-white);
+    line-height: 1;
+  }
+
+  .metric-card__value span {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .metric-card__chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 96px;
+    margin-bottom: 16px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--color-border-dark);
+  }
+
+  .metric-card__bar {
+    flex: 1;
+    height: var(--bar);
+    border-radius: 2px 2px 0 0;
+    background: linear-gradient(180deg, var(--color-accent), rgba(249, 115, 22, 0.25));
+    transform-origin: bottom;
+    animation: grow-bar 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 200ms);
+  }
+
+  .metric-card:nth-child(2) .metric-card__bar {
+    background: linear-gradient(180deg, var(--color-accent), rgba(249, 115, 22, 0.25));
+  }
+
+  .metric-card:nth-child(3) .metric-card__bar {
+    background: linear-gradient(180deg, #fb923c, rgba(249, 115, 22, 0.25));
+  }
+
+  .metric-card:nth-child(4) .metric-card__bar {
+    background: linear-gradient(180deg, var(--color-primary-500), rgba(59, 130, 246, 0.25));
+  }
+
+  @keyframes grow-bar {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  .metric-card h3 {
+    color: var(--color-white);
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .metric-card__axis {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  @media (max-width: 980px) {
+    .marketing__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .marketing__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

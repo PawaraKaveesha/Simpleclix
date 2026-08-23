@@ -1,0 +1,167 @@
+---
+const pillars = [
+  {
+    code: 'BUILD',
+    title: 'Build',
+    text: 'Websites and digital platforms designed for performance — fast, secure, and engineered to convert.',
+  },
+  {
+    code: 'CONNECT',
+    title: 'Connect',
+    text: 'Digital marketing that connects businesses with the right audience at the right moment.',
+  },
+  {
+    code: 'GROW',
+    title: 'Grow',
+    text: 'Data-driven optimization focused on measurable, compounding results.',
+  },
+];
+
+const disciplines = [
+  'Web Development',
+  'Design',
+  'Branding',
+  'SEO',
+  'Social Media',
+  'Advertising',
+  'Digital Strategy',
+];
+---
+
+<section class="section" id="about" aria-labelledby="about-heading">
+  <div class="grid-bg grid-bg--light" aria-hidden="true"></div>
+  <div class="container">
+    <div class="about__head reveal">
+      <span class="tag">01 / WHO WE ARE</span>
+      <h2 id="about-heading">Technology meets digital growth.</h2>
+      <p class="about__lead">
+        Simpleclix brings web development, design, branding, SEO, social media,
+        advertising, and digital strategy together under one roof — so your presence
+        is built and grown by a single, accountable partner.
+      </p>
+      <ul class="about__disciplines" aria-label="Our disciplines">
+        {disciplines.map((d) => (
+          <li>{d}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="about__grid">
+      {pillars.map((pillar, i) => (
+        <article class="about__card reveal" style={`--reveal-delay: ${i * 100}ms`}>
+          <span class="about__indicator" aria-hidden="true"></span>
+          <span class="about__code">{pillar.code}</span>
+          <h3>{pillar.title}</h3>
+          <p>{pillar.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about__head {
+    max-width: 760px;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: clamp(44px, 6vw, 72px);
+  }
+
+  .about__head .tag {
+    margin-bottom: 18px;
+  }
+
+  .about__head h2 {
+    margin-bottom: 18px;
+  }
+
+  .about__lead {
+    margin-inline: auto;
+    font-size: 1.05rem;
+    margin-bottom: 26px;
+  }
+
+  .about__disciplines {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .about__disciplines li {
+    padding: 7px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: var(--color-white);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .about__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 2.5vw, 28px);
+  }
+
+  .about__card {
+    position: relative;
+    padding: clamp(26px, 3vw, 36px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition),
+      border-color var(--transition);
+  }
+
+  .about__card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(249, 115, 22, 0.4);
+  }
+
+  .about__indicator {
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: 34px;
+    height: 3px;
+    background: var(--color-accent);
+  }
+
+  .about__card:nth-child(2) .about__indicator {
+    background: var(--color-primary-600);
+  }
+
+  .about__card:nth-child(3) .about__indicator {
+    background: var(--color-accent);
+  }
+
+  .about__code {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+  }
+
+  .about__card h3 {
+    margin-bottom: 10px;
+  }
+
+  .about__card p {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 860px) {
+    .about__grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+  }
+</style>

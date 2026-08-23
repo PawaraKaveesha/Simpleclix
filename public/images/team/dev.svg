@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" role="img" aria-label="Portrait of Dev Fernando">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#f97316"/>
+      <stop offset="1" stop-color="#fb923c"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="720" fill="url(#bg)"/>
+  <circle cx="90" cy="120" r="160" fill="#fbbf24" opacity="0.3"/>
+  <circle cx="540" cy="640" r="190" fill="#7c2d12" opacity="0.18"/>
+  <circle cx="110" cy="460" r="5" fill="#ffffff" opacity="0.5"/>
+  <circle cx="480" cy="300" r="5" fill="#ffffff" opacity="0.45"/>
+  <circle cx="360" cy="180" r="4" fill="#ffffff" opacity="0.4"/>
+
+  <path d="M80 720 C80 565 185 520 300 520 C415 520 520 565 520 720 Z" fill="#134e4a"/>
+  <rect x="230" y="560" width="140" height="42" rx="21" fill="#0d9488"/>
+  <rect x="282" y="428" width="36" height="100" rx="16" fill="#e8b38c"/>
+  <circle cx="300" cy="345" r="102" fill="#e8b38c"/>
+
+  <path d="M200 335 C200 250 255 222 300 222 C345 222 400 250 400 335 C400 300 385 268 352 250 C340 241 320 236 300 236 C268 236 235 260 216 292 C206 310 201 323 200 335 Z" fill="#1f2937"/>
+
+  <circle cx="240" cy="352" r="24" fill="none" stroke="#111827" stroke-width="6"/>
+  <circle cx="360" cy="352" r="24" fill="none" stroke="#111827" stroke-width="6"/>
+  <path d="M264 352 L336 352" stroke="#111827" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="262" cy="356" rx="6" ry="7" fill="#3a2518"/>
+  <ellipse cx="338" cy="356" rx="6" ry="7" fill="#3a2518"/>
+  <circle cx="263" cy="354" r="3.5" fill="#0f172a"/>
+  <circle cx="337" cy="354" r="3.5" fill="#0f172a"/>
+  <path d="M316 392 Q300 402 284 392" fill="none" stroke="#b4765a" stroke-width="5" stroke-linecap="round"/>
+</svg>

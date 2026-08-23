@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" role="img" aria-label="Portrait of Amaya Silva">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="720" fill="url(#bg)"/>
+  <circle cx="520" cy="150" r="160" fill="#eff6ff" opacity="0.22"/>
+  <circle cx="90" cy="640" r="180" fill="#f97316" opacity="0.16"/>
+  <circle cx="140" cy="220" r="5" fill="#ffffff" opacity="0.5"/>
+  <circle cx="470" cy="480" r="5" fill="#ffffff" opacity="0.45"/>
+  <circle cx="420" cy="210" r="4" fill="#ffffff" opacity="0.4"/>
+
+  <path d="M80 720 C80 565 185 520 300 520 C415 520 520 565 520 720 Z" fill="#312e81"/>
+  <path d="M286 520 L314 520 L300 606 Z" fill="#f5f3ff"/>
+  <rect x="282" y="428" width="36" height="100" rx="16" fill="#e8b38c"/>
+
+  <path d="M190 520 C170 430 185 340 225 285 C250 250 275 235 300 235 C325 235 350 250 375 285 C415 340 430 430 410 520 Z" fill="#3b0f0f"/>
+  <circle cx="300" cy="345" r="100" fill="#e8b38c"/>
+  <path d="M200 400 C190 330 215 280 300 265 C385 280 410 330 400 400 L400 470 C400 500 200 500 200 470 Z" fill="#3b0f0f"/>
+
+  <ellipse cx="262" cy="350" rx="8" ry="10" fill="#3a2518"/>
+  <ellipse cx="338" cy="350" rx="8" ry="10" fill="#3a2518"/>
+  <circle cx="264" cy="348" r="4" fill="#0f172a"/>
+  <circle cx="336" cy="348" r="4" fill="#0f172a"/>
+  <path d="M316 388 Q300 398 284 388" fill="none" stroke="#b4765a" stroke-width="5" stroke-linecap="round"/>
+
+  <path d="M262 322 Q300 306 338 322" fill="none" stroke="#3b0f0f" stroke-width="8" stroke-linecap="round"/>
+</svg>

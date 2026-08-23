@@ -1,0 +1,315 @@
+---
+import { projects, projectsCategories } from '../data/content';
+---
+
+<section class="section portfolio" id="portfolio" aria-labelledby="portfolio-heading">
+  <div class="grid-bg grid-bg--light" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="tag portfolio__tag">03 / SELECTED WORK</span>
+      <h2 id="portfolio-heading">Built for the real world.</h2>
+      <p class="lead">
+        Websites, platforms, and campaigns shipped for real businesses — measured by the
+        results they deliver.
+      </p>
+    </div>
+
+    <div class="portfolio__filters reveal" role="group" aria-label="Filter projects by category">
+      {projectsCategories.map((category, i) => (
+        <button
+          class="portfolio__filter"
+          type="button"
+          data-filter={category === 'All' ? 'all' : category.toLowerCase()}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+        >
+          <span class="portfolio__filter-num">{String(i).padStart(2, '0')}</span>
+          {category}
+        </button>
+      ))}
+    </div>
+
+    <ul class="portfolio__grid" id="portfolio-grid">
+      {projects.map((project, i) => (
+        <li
+          class="portfolio__item reveal"
+          data-category={project.category.toLowerCase()}
+          style={`--reveal-delay: ${(i % 3) * 80}ms`}
+        >
+          <article class="project-card">
+            <div class="project-card__media">
+              <img
+                src={project.image}
+                alt={project.alt}
+                width="1200"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="project-card__result">{project.result}</span>
+              <span class="project-card__cat">{project.category}</span>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__top">
+                <div>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                </div>
+              </div>
+              <ul class="project-card__meta" aria-label="Project metadata">
+                <li><span>TYPE</span>{project.type}</li>
+                <li><span>STACK</span>{project.stack}</li>
+                <li><span>STATUS</span><b>{project.status}</b></li>
+              </ul>
+              <a class="project-card__link" href="#contact">
+                View Project
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<script>
+  const filters = document.querySelectorAll('.portfolio__filter');
+  const items = document.querySelectorAll('.portfolio__item');
+
+  const applyFilter = (value) => {
+    items.forEach((item) => {
+      const match = value === 'all' || item.dataset.category === value;
+      item.hidden = !match;
+    });
+  };
+
+  filters.forEach((button) => {
+    button.addEventListener('click', () => {
+      filters.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+      button.setAttribute('aria-pressed', 'true');
+      applyFilter(button.dataset.filter);
+    });
+  });
+</script>
+
+<style>
+  .portfolio__tag {
+    margin-bottom: 18px;
+  }
+
+  .portfolio__filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: clamp(32px, 4vw, 44px);
+  }
+
+  .portfolio__filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    transition: background var(--transition), color var(--transition),
+      border-color var(--transition), transform var(--transition);
+  }
+
+  .portfolio__filter-num {
+    font-size: 0.62rem;
+    color: var(--color-accent);
+  }
+
+  .portfolio__filter:hover {
+    border-color: var(--color-primary-600);
+    color: var(--color-primary-600);
+    transform: translateY(-2px);
+  }
+
+  .portfolio__filter[aria-pressed='true'] {
+    background: var(--color-dark);
+    border-color: var(--color-dark);
+    color: var(--color-white);
+  }
+
+  .portfolio__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 2.5vw, 28px);
+  }
+
+  .portfolio__item[hidden] {
+    display: none;
+  }
+
+  .project-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-white);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition),
+      border-color var(--transition);
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(37, 99, 235, 0.35);
+  }
+
+  .project-card__media {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-dark-800);
+  }
+
+  .project-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .project-card:hover .project-card__media img {
+    transform: scale(1.04);
+  }
+
+  .project-card__result {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+  }
+
+  .project-card__cat {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    background: rgba(37, 99, 235, 0.9);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-white);
+  }
+
+  .project-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px;
+  }
+
+  .project-card__body h3 {
+    margin-bottom: 8px;
+  }
+
+  .project-card__body p {
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+
+  .project-card__meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+    margin-bottom: 18px;
+  }
+
+  .project-card__meta li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    color: var(--color-dark);
+    white-space: nowrap;
+  }
+
+  .project-card__meta li span {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+  }
+
+  .project-card__meta li b {
+    color: var(--color-green);
+    font-weight: 600;
+  }
+
+  .project-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary-600);
+  }
+
+  .project-card__link svg {
+    width: 15px;
+    height: 15px;
+    transition: transform var(--transition);
+  }
+
+  .project-card__link:hover {
+    color: var(--color-accent);
+  }
+
+  .project-card__link:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 980px) {
+    .portfolio__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .portfolio__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-card__meta {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

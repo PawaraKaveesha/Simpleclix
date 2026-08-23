@@ -1,0 +1,138 @@
+---
+import { processSteps } from '../data/content';
+---
+
+<section class="section section--light process" id="process" aria-labelledby="process-heading">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="tag process__tag">PROCESS</span>
+      <h2 id="process-heading">From idea to growth in five steps.</h2>
+      <p class="lead">
+        A clear, proven path from understanding your business to building the platform and
+        growing the audience that sustains it.
+      </p>
+    </div>
+
+    <ol class="process__steps">
+      {processSteps.map((step, i) => (
+        <li class="process__step reveal" style={`--reveal-delay: ${i * 90}ms`}>
+          <div class="process__node">
+            <span class="process__num">{step.number}</span>
+            <span class="process__dot" aria-hidden="true"></span>
+          </div>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .process__tag {
+    margin-bottom: 18px;
+  }
+
+  .process__steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: clamp(20px, 2.5vw, 28px);
+    position: relative;
+  }
+
+  .process__steps::before {
+    content: '';
+    position: absolute;
+    top: 21px;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-primary-500) 0%, rgba(37, 99, 235, 0.35) 40%, rgba(249, 115, 22, 0.35) 60%, var(--color-accent) 100%);
+    z-index: 0;
+  }
+
+  .process__step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 6px;
+  }
+
+  .process__node {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .process__num {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-sm);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary-600);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), background var(--transition), color var(--transition);
+  }
+
+  .process__step:hover .process__num {
+    background: var(--gradient-accent);
+    border-color: transparent;
+    color: var(--color-white);
+    transform: translateY(-3px);
+  }
+
+  .process__dot {
+    position: absolute;
+    top: 19px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.5);
+    animation: pulse-dot 2.4s ease-out infinite;
+    transition: opacity var(--transition);
+    opacity: 0;
+  }
+
+  .process__step:hover .process__dot {
+    opacity: 1;
+  }
+
+  .process__step h3 {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .process__step p {
+    margin-inline: auto;
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 980px) {
+    .process__steps {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 36px;
+    }
+
+    .process__steps::before {
+      display: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .process__steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
