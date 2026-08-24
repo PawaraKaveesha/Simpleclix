@@ -4,10 +4,10 @@ export const site = {
   description:
     'Simpleclix creates high-performance web solutions and data-driven digital marketing strategies that help businesses build their presence and grow online.',
   url: 'https://simpleclix.com',
+  primaryContact: 'Jithmi Suraweera',
   email: 'hello@simpleclix.com',
-  phone: '+1 (555) 012-3456',
-  phoneHref: '+15550123456',
-  address: '1000 Innovation Drive, Suite 400, Austin, TX 78701',
+  phone: '0752688105',
+  phoneHref: '0752688105',
   founded: 2018,
 };
 

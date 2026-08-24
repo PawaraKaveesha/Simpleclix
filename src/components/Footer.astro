@@ -65,9 +65,9 @@ const socialIcons = {
         <nav aria-label="Contact">
           <h3>Contact</h3>
           <ul class="footer__contact">
+            <li><span class="footer__contact-person">{site.primaryContact}</span></li>
             <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
             <li><a href={`tel:${site.phoneHref}`}>{site.phone}</a></li>
-            <li><a href={'https://maps.google.com/?q=' + encodeURIComponent(site.address)} rel="noopener" target="_blank">{site.address}</a></li>
           </ul>
         </nav>
       </div>
@@ -156,9 +156,11 @@ const socialIcons = {
     gap: 10px;
   }
 
-  .footer__col a {
-    color: rgba(255, 255, 255, 0.65);
+  .footer__col a,
+  .footer__contact-person {
+    color: rgba(255, 255, 255, 0.85);
     font-size: 0.9rem;
+    font-weight: 500;
   }
 
   .footer__col a:hover {
