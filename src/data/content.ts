@@ -137,86 +137,7 @@ export const stats = [
   { label: 'Performance', value: '90+', sub: 'LIGHTHOUSE SCORE' },
 ];
 
-export interface Project {
-  title: string;
-  category: 'Web' | 'Marketing' | 'UI/UX';
-  description: string;
-  image: string;
-  alt: string;
-  type: string;
-  stack: string;
-  status: string;
-  result: string;
-}
 
-export const projects: Project[] = [
-  {
-    title: 'Meridian Group',
-    category: 'Web',
-    description: 'A polished corporate platform that turns visitors into qualified enquiries.',
-    image: '/images/portfolio/corporate-website.svg',
-    alt: 'Meridian Group corporate website interface',
-    type: 'CORPORATE',
-    stack: 'ASTRO / JS',
-    status: 'LIVE',
-    result: '+32% LEADS',
-  },
-  {
-    title: 'Bloom & Co.',
-    category: 'Web',
-    description: 'A boutique storefront with a fast checkout and a brand customers remember.',
-    image: '/images/portfolio/ecommerce-store.svg',
-    alt: 'Bloom & Co. e-commerce storefront',
-    type: 'E-COMMERCE',
-    stack: 'ASTRO / JS',
-    status: 'LIVE',
-    result: '2.1× SALES',
-  },
-  {
-    title: 'Spice Garden',
-    category: 'Web',
-    description: 'A mouth-watering restaurant site with seamless online reservations.',
-    image: '/images/portfolio/restaurant-website.svg',
-    alt: 'Spice Garden restaurant website',
-    type: 'RESTAURANT',
-    stack: 'ASTRO / JS',
-    status: 'LIVE',
-    result: '+45% BOOKINGS',
-  },
-  {
-    title: 'Vertex SEO',
-    category: 'Marketing',
-    description: 'A search campaign that took a regional brand to the top of the results.',
-    image: '/images/portfolio/seo-campaign.svg',
-    alt: 'Vertex SEO campaign dashboard',
-    type: 'SEO',
-    stack: 'ANALYTICS',
-    status: 'LIVE',
-    result: '+212% TRAFFIC',
-  },
-  {
-    title: 'Pulse Social',
-    category: 'Marketing',
-    description: 'A social campaign that grew engagement and built a loyal community.',
-    image: '/images/portfolio/social-campaign.svg',
-    alt: 'Pulse Social campaign interface',
-    type: 'SOCIAL',
-    stack: 'META ADS',
-    status: 'LIVE',
-    result: '+160% ENGAGEMENT',
-  },
-  {
-    title: 'FinFlow',
-    category: 'UI/UX',
-    description: 'A clean financial dashboard designed around real user workflows.',
-    image: '/images/portfolio/finance-dashboard.svg',
-    alt: 'FinFlow dashboard user interface',
-    type: 'WEB APP',
-    stack: 'REACT',
-    status: 'LIVE',
-    result: '−40% MANUAL WORK',
-  },
-];
 
 export const team = [
   {
@@ -291,4 +212,4 @@ export const metrics: Metric[] = [
   { label: 'Conversions', code: 'CONVERSIONS', value: '94%', delta: '+18% MO/MO', trend: [18, 26, 28, 36, 42, 48, 56, 70] },
 ];
 
-export const projectsCategories = ['All', 'Web', 'Marketing', 'UI/UX'];
+
