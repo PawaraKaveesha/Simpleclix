@@ -1,11 +1,62 @@
 ---
-const label = 'DIGITAL SOLUTIONS / 2026';
+const label = 'DIGITAL SOLUTIONS / SIMPLECLIX';
 ---
 
 <section class="hero" id="home" aria-labelledby="hero-heading">
-  <div class="grid-bg grid-bg--dark" aria-hidden="true"></div>
-  <div class="net-line hero__net-1" aria-hidden="true"></div>
-  <div class="net-line net-line--accent hero__net-2" aria-hidden="true"></div>
+  <!-- YouTube Video Background (lazy-loaded on desktop only) -->
+  <div class="hero__video-wrap" id="hero-video-wrap" aria-hidden="true"></div>
+
+  <!-- Overlay layers -->
+  <div class="hero__overlay hero__overlay--dark" aria-hidden="true"></div>
+  <div class="hero__overlay hero__overlay--gradient" aria-hidden="true"></div>
+  <div class="hero__overlay hero__overlay--accent" aria-hidden="true"></div>
+
+  <!-- Technical grid background -->
+  <div class="hero__grid-bg" aria-hidden="true">
+    <svg class="hero__grid-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <!-- Grid lines -->
+      <g stroke="rgba(148,163,184,0.08)" stroke-width="1">
+        <line x1="0" y1="100" x2="1200" y2="100" />
+        <line x1="0" y1="200" x2="1200" y2="200" />
+        <line x1="0" y1="300" x2="1200" y2="300" />
+        <line x1="0" y1="400" x2="1200" y2="400" />
+        <line x1="0" y1="500" x2="1200" y2="500" />
+        <line x1="0" y1="600" x2="1200" y2="600" />
+        <line x1="0" y1="700" x2="1200" y2="700" />
+        <line x1="150" y1="0" x2="150" y2="800" />
+        <line x1="300" y1="0" x2="300" y2="800" />
+        <line x1="450" y1="0" x2="450" y2="800" />
+        <line x1="600" y1="0" x2="600" y2="800" />
+        <line x1="750" y1="0" x2="750" y2="800" />
+        <line x1="900" y1="0" x2="900" y2="800" />
+        <line x1="1050" y1="0" x2="1050" y2="800" />
+      </g>
+      <!-- Glowing nodes -->
+      <g class="hero__nodes">
+        <circle cx="300" cy="200" r="3" fill="#3b82f6" opacity="0.6" />
+        <circle cx="600" cy="100" r="2.5" fill="#f97316" opacity="0.5" />
+        <circle cx="900" cy="300" r="3" fill="#3b82f6" opacity="0.6" />
+        <circle cx="450" cy="500" r="2" fill="#f97316" opacity="0.4" />
+        <circle cx="750" cy="400" r="2.5" fill="#3b82f6" opacity="0.5" />
+        <circle cx="150" cy="600" r="2" fill="#3b82f6" opacity="0.4" />
+        <circle cx="1050" cy="200" r="2.5" fill="#f97316" opacity="0.5" />
+      </g>
+      <!-- Circuit / network lines -->
+      <g stroke="rgba(59,130,246,0.12)" stroke-width="1" fill="none">
+        <path d="M300 200 L450 200 L450 300 L600 300" />
+        <path d="M600 100 L600 200 L750 200" />
+        <path d="M900 300 L900 400 L750 400" />
+      </g>
+      <g stroke="rgba(249,115,22,0.10)" stroke-width="1" fill="none">
+        <path d="M150 600 L300 600 L300 500 L450 500" />
+        <path d="M1050 200 L1050 300 L900 300" />
+      </g>
+      <!-- Node glow rings -->
+      <circle cx="300" cy="200" r="8" fill="none" stroke="rgba(59,130,246,0.15)" stroke-width="1" class="hero__node-ring" />
+      <circle cx="900" cy="300" r="8" fill="none" stroke="rgba(59,130,246,0.15)" stroke-width="1" class="hero__node-ring hero__node-ring--delay1" />
+      <circle cx="600" cy="100" r="7" fill="none" stroke="rgba(249,115,22,0.12)" stroke-width="1" class="hero__node-ring hero__node-ring--delay2" />
+    </svg>
+  </div>
 
   <div class="container hero__inner">
     <div class="hero__content reveal">
@@ -15,9 +66,21 @@ const label = 'DIGITAL SOLUTIONS / 2026';
         <span class="hero__accent">Grow Online.</span>
       </h1>
       <p class="hero__lead">
-        We design high-performance websites and execute digital marketing strategies
-        that turn online presence into measurable business growth.
+        We create high-performance web solutions and data-driven digital marketing
+        strategies that help businesses build their presence and grow online.
       </p>
+
+      <div class="hero__categories">
+        <span class="hero__category">
+          <span class="status-dot" aria-hidden="true"></span>
+          WEB SOLUTIONS
+        </span>
+        <span class="hero__category">
+          <span class="status-dot status-dot--orange pulse-accent" aria-hidden="true"></span>
+          DIGITAL MARKETING
+        </span>
+      </div>
+
       <div class="hero__actions">
         <a class="btn btn--accent" href="#services">
           Explore Services
@@ -29,18 +92,42 @@ const label = 'DIGITAL SOLUTIONS / 2026';
         <a class="btn btn--outline-light" href="#portfolio">View Our Work</a>
       </div>
 
-      <ul class="hero__chips" aria-label="What Simpleclix covers">
-        <li><span class="status-dot" aria-hidden="true"></span>WEB SOLUTIONS</li>
-        <li><span class="status-dot status-dot--orange pulse-accent" aria-hidden="true"></span>DIGITAL MARKETING</li>
-      </ul>
+      <span class="hero__status-indicator">
+        <span class="status-dot" aria-hidden="true"></span>
+        SYSTEM ONLINE
+      </span>
     </div>
 
     <div class="hero__visual reveal" style="--reveal-delay: 150ms">
-      <span class="status-chip status-chip--dark hero__sys-chip">
-        <span class="status-dot" aria-hidden="true"></span>
-        SYSTEM / ONLINE
-      </span>
+      <!-- HUD Elements -->
+      <div class="hero__hud">
+        <div class="hero__hud-item hero__hud-item--web">
+          <span class="hero__hud-label">WEB / 98%</span>
+          <div class="hero__hud-bar">
+            <div class="hero__hud-bar-fill" style="--bar-width: 98%"></div>
+          </div>
+        </div>
 
+        <div class="hero__hud-item hero__hud-item--seo">
+          <span class="hero__hud-label">SEO / +42%</span>
+          <div class="hero__hud-bar">
+            <div class="hero__hud-bar-fill hero__hud-bar-fill--accent" style="--bar-width: 72%"></div>
+          </div>
+        </div>
+
+        <div class="hero__hud-item hero__hud-item--social">
+          <span class="hero__hud-label">
+            <span class="status-dot" style="width:5px;height:5px;" aria-hidden="true"></span>
+            SOCIAL / ACTIVE
+          </span>
+        </div>
+
+        <div class="hero__hud-item hero__hud-item--perf">
+          <span class="hero__hud-label">PERFORMANCE / OPTIMIZED</span>
+        </div>
+      </div>
+
+      <!-- Technical Diagram Panel -->
       <div class="hero__panel">
         <svg
           class="hero__svg"
@@ -106,11 +193,51 @@ const label = 'DIGITAL SOLUTIONS / 2026';
       </div>
 
       <span class="status-chip status-chip--dark hero__perf-chip">
-        PERFORMANCE / OPTIMIZED
+        DIGITAL / 2026
       </span>
     </div>
   </div>
 </section>
+
+<script>
+  // Lazy-load YouTube video on desktop only, respecting reduced motion
+  (function () {
+    const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isDesktop && !prefersReducedMotion) {
+      const loadVideo = () => {
+        const wrap = document.getElementById('hero-video-wrap');
+        if (!wrap || wrap.querySelector('iframe')) return;
+
+        const iframe = document.createElement('iframe');
+        iframe.src =
+          'https://www.youtube.com/embed/pQpFebyALV0?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=pQpFebyALV0&playsinline=1&modestbranding=1&iv_load_policy=3&disablekb=1';
+        iframe.allow = 'autoplay; encrypted-media';
+        iframe.setAttribute('loading', 'lazy');
+        iframe.setAttribute('tabindex', '-1');
+        iframe.setAttribute('aria-hidden', 'true');
+        iframe.title = 'Background video';
+        iframe.style.cssText =
+          'position:absolute;top:50%;left:50%;width:120vw;height:120vh;min-width:120%;min-height:120%;transform:translate(-50%,-50%);border:0;pointer-events:none;opacity:0;transition:opacity 1.2s ease;';
+
+        wrap.appendChild(iframe);
+
+        // Fade in once loaded
+        iframe.addEventListener('load', () => {
+          iframe.style.opacity = '1';
+        });
+      };
+
+      // Use requestIdleCallback if available, otherwise setTimeout
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadVideo, { timeout: 3000 });
+      } else {
+        setTimeout(loadVideo, 1500);
+      }
+    }
+  })();
+</script>
 
 <style>
   .hero {
@@ -119,24 +246,102 @@ const label = 'DIGITAL SOLUTIONS / 2026';
     background: var(--color-dark);
     padding-top: calc(var(--header-height) + clamp(56px, 8vw, 96px));
     padding-bottom: clamp(56px, 8vw, 96px);
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
     color: var(--color-white);
   }
 
-  .hero__net-1 {
-    width: 46%;
-    top: 28%;
-    left: -10%;
-    transform: rotate(-8deg);
+  /* Video background container */
+  .hero__video-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
   }
 
-  .hero__net-2 {
-    width: 38%;
-    bottom: 16%;
-    right: -8%;
-    transform: rotate(10deg);
+  /* Overlay layers */
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
   }
 
+  .hero__overlay--dark {
+    background: rgba(10, 15, 36, 0.82);
+  }
+
+  .hero__overlay--gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(30, 58, 138, 0.4) 0%,
+      rgba(37, 99, 235, 0.15) 50%,
+      rgba(15, 23, 42, 0.3) 100%
+    );
+  }
+
+  .hero__overlay--accent {
+    background: radial-gradient(
+      ellipse 60% 50% at 70% 80%,
+      rgba(249, 115, 22, 0.08),
+      transparent 60%
+    );
+  }
+
+  /* Technical grid background */
+  .hero__grid-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.7;
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 10%, transparent 70%);
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 10%, transparent 70%);
+  }
+
+  .hero__grid-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Node pulse animation */
+  .hero__nodes circle {
+    animation: hero-node-pulse 3.5s ease-in-out infinite;
+  }
+
+  .hero__nodes circle:nth-child(2) { animation-delay: 0.5s; }
+  .hero__nodes circle:nth-child(3) { animation-delay: 1.0s; }
+  .hero__nodes circle:nth-child(4) { animation-delay: 1.5s; }
+  .hero__nodes circle:nth-child(5) { animation-delay: 2.0s; }
+  .hero__nodes circle:nth-child(6) { animation-delay: 2.5s; }
+  .hero__nodes circle:nth-child(7) { animation-delay: 3.0s; }
+
+  @keyframes hero-node-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Node ring expand animation */
+  .hero__node-ring {
+    animation: hero-ring-expand 4s ease-out infinite;
+  }
+
+  .hero__node-ring--delay1 { animation-delay: 1.3s; }
+  .hero__node-ring--delay2 { animation-delay: 2.6s; }
+
+  @keyframes hero-ring-expand {
+    0% { r: 8; opacity: 0.2; }
+    50% { r: 16; opacity: 0; }
+    100% { r: 8; opacity: 0; }
+  }
+
+  /* Hero inner layout */
   .hero__inner {
+    position: relative;
+    z-index: 3;
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
     gap: clamp(40px, 5vw, 72px);
@@ -159,23 +364,18 @@ const label = 'DIGITAL SOLUTIONS / 2026';
   .hero__lead {
     color: rgba(255, 255, 255, 0.78);
     font-size: 1.1rem;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
-  .hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-bottom: 40px;
-  }
-
-  .hero__chips {
+  /* Category indicators */
+  .hero__categories {
     display: flex;
     flex-wrap: wrap;
     gap: 22px;
+    margin-bottom: 32px;
   }
 
-  .hero__chips li {
+  .hero__category {
     display: inline-flex;
     align-items: center;
     gap: 9px;
@@ -185,6 +385,31 @@ const label = 'DIGITAL SOLUTIONS / 2026';
     color: rgba(255, 255, 255, 0.6);
   }
 
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  /* Status indicator */
+  .hero__status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-full);
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  /* Visual / HUD side */
   .hero__visual {
     position: relative;
     display: flex;
@@ -193,8 +418,60 @@ const label = 'DIGITAL SOLUTIONS / 2026';
     gap: 14px;
   }
 
-  .hero__sys-chip {
-    align-self: flex-start;
+  /* HUD Elements */
+  .hero__hud {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .hero__hud-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 14px;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .hero__hud-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero__hud-bar {
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .hero__hud-bar-fill {
+    height: 100%;
+    width: var(--bar-width, 50%);
+    border-radius: 2px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    animation: hero-bar-fill 2s ease-out forwards;
+    transform-origin: left;
+  }
+
+  .hero__hud-bar-fill--accent {
+    background: linear-gradient(90deg, #f97316, #fb923c);
+  }
+
+  @keyframes hero-bar-fill {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
   }
 
   .hero__perf-chip {
@@ -221,21 +498,12 @@ const label = 'DIGITAL SOLUTIONS / 2026';
     transform-origin: center;
   }
 
-  .vis-pulse circle:nth-child(2) {
-    animation-delay: 0.6s;
-  }
-
-  .vis-pulse circle:nth-child(3) {
-    animation-delay: 1.2s;
-  }
-
-  .vis-pulse circle:nth-child(4) {
-    animation-delay: 1.8s;
-  }
+  .vis-pulse circle:nth-child(2) { animation-delay: 0.6s; }
+  .vis-pulse circle:nth-child(3) { animation-delay: 1.2s; }
+  .vis-pulse circle:nth-child(4) { animation-delay: 1.8s; }
 
   @keyframes vis-pulse {
-    0%,
-    100% {
+    0%, 100% {
       opacity: 0.35;
       transform: scale(0.85);
     }
@@ -245,7 +513,14 @@ const label = 'DIGITAL SOLUTIONS / 2026';
     }
   }
 
+  /* Mobile: hide video, single column */
   @media (max-width: 900px) {
+    .hero {
+      min-height: auto;
+      padding-top: calc(var(--header-height) + clamp(40px, 6vw, 64px));
+      padding-bottom: clamp(40px, 6vw, 64px);
+    }
+
     .hero__inner {
       grid-template-columns: 1fr;
     }
@@ -253,6 +528,38 @@ const label = 'DIGITAL SOLUTIONS / 2026';
     .hero__visual {
       max-width: 520px;
       margin-inline: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero__video-wrap {
+      display: none;
+    }
+
+    .hero__hud {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Reduced motion: disable all animations and video */
+  @media (prefers-reduced-motion: reduce) {
+    .hero__video-wrap {
+      display: none;
+    }
+
+    .hero__nodes circle,
+    .hero__node-ring,
+    .vis-pulse circle,
+    .hero__hud-bar-fill {
+      animation: none;
+    }
+
+    .hero__hud-bar-fill {
+      transform: scaleX(1);
+    }
+
+    .hero__node-ring {
+      opacity: 0;
     }
   }
 </style>
